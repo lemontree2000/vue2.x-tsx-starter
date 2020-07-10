@@ -8,6 +8,7 @@ import state from "./state";
 import user from "./modules/user.module";
 
 Vue.use(Vuex);
+
 const debug = process.env.NODE_ENV !== "production";
 const store = new Vuex.Store({
   state,
