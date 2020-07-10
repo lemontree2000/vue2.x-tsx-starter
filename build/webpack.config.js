@@ -2,26 +2,47 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { VueLoaderPlugin } = require("vue-loader");
+const { ProgressPlugin } = require("webpack");
+
 module.exports = {
-  entry: "./src/main.js",
+  entry: {
+    app: ["./src/main.ts"],
+  },
   output: {
     filename: "[name].[hash].js",
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/",
   },
-  resolve: {
-    // 将 `.ts` 添加为一个可解析的扩展名。
-    extensions: [".ts", ".js", ".tsx"],
-  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+          },
+          {
+            loader: "ts-loader",
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: ["\\.vue$"],
+              happyPackMode: true,
+            },
+          },
+        ],
+      },
       {
         test: /\.vue$/,
         use: [{ loader: "vue-loader" }],
       },
       {
         test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+        use: [
+          { loader: "style-loader" },
+          { loader: "css-loader" },
+          { loader: "postcss-loader" },
+        ],
       },
       {
         test: /\.less$/,
@@ -29,6 +50,16 @@ module.exports = {
           { loader: "style-loader" },
           { loader: "css-loader" },
           { loader: "less-loader" },
+          {
+            loader: "sass-resources-loader",
+            options: {
+              sourceMap: true,
+              resources: [
+                path.resolve(__dirname, "../src/styles/variables.less"),
+              ],
+            },
+          },
+          { loader: "postcss-loader" },
         ],
       },
       {
@@ -46,16 +77,24 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    // 将 `.ts` 添加为一个可解析的扩展名。
+    extensions: [".ts", ".tsx", ".js"],
+    alias: {
+      "@": path.resolve(__dirname, "../src/"),
+    },
+  },
   optimization: {
     splitChunks: {
       chunks: "all",
     },
   },
   plugins: [
+    new ProgressPlugin(),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      title: "html inject title",
+      title: "title",
       template: path.resolve(__dirname, "../public/index.html"),
     }),
   ],

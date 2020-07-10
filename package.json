@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config ./build/webpack.config.js",
-    "dev": "webpack-dev-server --open --config ./build/webpack.config.dev.js"
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js",
+    "serve": "cross-env NODE_ENV=development env=test node ./build/server.js",
+    "build:test": "cross-env env=test npm run build",
+    "build:prod": "cross-env env=prod npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,13 +22,26 @@
   },
   "homepage": "https://github.com/lemontree2000/vue2.x-tsx-starter#readme",
   "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@types/axios": "^0.14.0",
+    "@types/vue": "^2.0.0",
+    "@vue/babel-preset-app": "^4.4.6",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "colors": "^1.4.0",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
+    "open": "^7.0.4",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.2.2",
+    "sass-resources-loader": "^2.0.3",
     "style-loader": "^1.2.1",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.6",
@@ -42,8 +57,15 @@
     "webpack-merge": "^5.0.7"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.0.0",
     "vue-router": "^3.3.4",
     "vuex": "^3.5.1"
-  }
+  },
+  "browserslist": [
+    "> 0.01%",
+    "not ie <= 9"
+  ]
 }
