@@ -27,12 +27,24 @@
       "path": "node_modules/cz-conventional-changelog"
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix --ext .js",
+      "git add ."
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.19",
-    "@types/vue": "^2.0.0",
     "@types/node": "^14.0.22",
+    "@types/vue": "^2.0.0",
     "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -43,6 +55,7 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "colors": "^1.4.0",
+    "commitizen": "^4.1.2",
     "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
@@ -53,9 +66,11 @@
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
     "jest": "^26.1.0",
     "less": "^3.11.3",
     "less-loader": "^6.2.0",
+    "lint-staged": "^10.2.11",
     "open": "^7.0.4",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",

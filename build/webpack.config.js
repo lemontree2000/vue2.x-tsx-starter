@@ -45,8 +45,7 @@ module.exports = {
           extensions: ['.js', '.jsx', '.vue', '.ts', '.tsx'],
           cache: true,
           emitWarning: false,
-          emitError: false,
-          fix: true
+          emitError: false
         }
       },
       {
