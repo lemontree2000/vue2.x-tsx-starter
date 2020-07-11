@@ -23,8 +23,14 @@ server.listen(config.port, webpackConfig.devServer.host, (error) => {
   }
 
   const serverUrl = getServerUrl();
-  const msg = `Please access to ${serverUrl.local.green} with your browser started by webpack-dev-server or ${serverUrl.ip.green} with your ip address!`;
-  console.log(msg);
+  // const msg = `Please access to ${serverUrl.local.green} with your browser started by webpack-dev-server or ${serverUrl.ip.green} with your ip address!`;
+  // console.log(msg);
+
+  const msg = `App running at:
+    -Local: ${serverUrl.local.green}
+    -Network: ${serverUrl.ip.green}
+  `
+  console.log(msg)
 
   // 编译完成
   compiler.hooks.done.tap("compiler done", () => {

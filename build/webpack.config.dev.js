@@ -18,7 +18,14 @@ module.exports = merge(config, {
     hot: true, // 在不支持热更新的时候不会刷新页面
     overlay: true, // 错误遮罩
     noInfo: true,
-    proxy,
+    watchOptions: {
+      // 延迟构建响应，即将多个文件更改的多次构建合成到一次重构建(rebuild)
+      aggregateTimeout: 1000, // in ms
+      poll: 500, // 间隔单位 ms
+      // 忽略指定目录的监听
+      ignored: ['node_modules']
+    },
+    proxy
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
 });

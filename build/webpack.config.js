@@ -15,6 +15,7 @@ module.exports = {
     publicPath: "/",
   },
   module: {
+    noParse: /^(vue|vue-router|vuex)$/,
     rules: [
       {
         test: /\.tsx?$/,
