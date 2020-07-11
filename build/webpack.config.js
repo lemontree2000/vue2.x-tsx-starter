@@ -26,9 +26,7 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              transpileOnly: true,
               appendTsSuffixTo: ["\\.vue$"],
-              happyPackMode: true,
             },
           },
         ],
@@ -36,6 +34,19 @@ module.exports = {
       {
         test: /\.vue$/,
         use: [{ loader: "vue-loader" }],
+      },
+      {
+        test: /\.(vue|(j|t)sx?)$/,
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          extensions: ['.js', '.jsx', '.vue', '.ts', '.tsx'],
+          cache: true,
+          emitWarning: false,
+          emitError: false,
+          fix: true
+        }
       },
       {
         test: /\.css$/,
@@ -50,6 +61,7 @@ module.exports = {
         use: [
           { loader: "style-loader" },
           { loader: "css-loader" },
+          { loader: "postcss-loader" },
           { loader: "less-loader" },
           {
             loader: "sass-resources-loader",
@@ -60,7 +72,6 @@ module.exports = {
               ],
             },
           },
-          { loader: "postcss-loader" },
         ],
       },
       {

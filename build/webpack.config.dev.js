@@ -15,7 +15,7 @@ module.exports = merge(config, {
     disableHostCheck: false, // 是否开启检查host, 改了本地host需要开启
     contentBase: path.join(__dirname, "dist"),
     historyApiFallback: true, // 使用HTML5 history API,
-    hotOnly: true, // 在不支持热更新的时候不会刷新页面
+    hot: true, // 在不支持热更新的时候不会刷新页面
     overlay: true, // 错误遮罩
     noInfo: true,
     proxy,
