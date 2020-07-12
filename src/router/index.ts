@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import VueRouter, { RouteConfig } from 'vue-router'
 
 Vue.use(VueRouter)
-const routes = [
+const routes: Array<RouteConfig> = [
   {
     path: '/',
-    component: () => import('../views/home')
+    component: () => import('../views/Home.vue')
   }
 ]
 

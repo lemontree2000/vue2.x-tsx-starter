@@ -23,8 +23,6 @@ server.listen(config.port, webpackConfig.devServer.host, (error) => {
   }
 
   const serverUrl = getServerUrl();
-  // const msg = `Please access to ${serverUrl.local.green} with your browser started by webpack-dev-server or ${serverUrl.ip.green} with your ip address!`;
-  // console.log(msg);
 
   const msg = `App running at:
     -Local: ${serverUrl.local.green}
