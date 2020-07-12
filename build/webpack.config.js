@@ -4,13 +4,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { ProgressPlugin } = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const PreloadPlugin = require('preload-webpack-plugin')
 
 module.exports = {
   entry: {
     app: ['./src/main.ts']
   },
   output: {
-    filename: '[name].[hash].js',
+    filename: 'js/[name].[hash:8].js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
@@ -75,11 +76,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|webp)$/,
         use: [
           {
             loader: 'url-loader',
-            options: { esModule: false }
+            options: {
+              esModule: false,
+              limit: 4096,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: 'img/[name].[hash:8].[ext]'
+                }
+              }
+            }
           }
         ]
       },
@@ -102,12 +112,21 @@ module.exports = {
     }
   },
   plugins: [
-    new ProgressPlugin(),
-    new CleanWebpackPlugin(),
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       title: 'title',
       template: path.resolve(__dirname, '../public/index.html')
+    }),
+    new ProgressPlugin(),
+    new CleanWebpackPlugin(),
+    new VueLoaderPlugin(),
+    new PreloadPlugin({
+      rel: 'preload',
+      include: 'initial',
+      fileBlacklist: [/\.map$/, /hot-update\.js$/]
+    }),
+    new PreloadPlugin({
+      rel: 'prefetch',
+      include: 'asyncChunks'
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -115,11 +134,11 @@ module.exports = {
           from: path.resolve(__dirname, '../public'),
           to: path.resolve(__dirname, '../dist'),
           toType: 'dir',
-          noErrorOnMissing: true,  // 当目录为空时不会报错
+          noErrorOnMissing: true, // 当目录为空时不会报错
           globOptions: {
             dot: true,
-            ignore: ['**/index.html'],
-          },
+            ignore: ['**/index.html']
+          }
         }
       ]
     })
