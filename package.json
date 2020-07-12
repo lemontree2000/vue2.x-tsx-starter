@@ -4,11 +4,11 @@
   "description": "vue2.x-tsx-starter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.prod.js",
     "serve": "cross-env NODE_ENV=development env=test node ./build/server.js",
     "build:test": "cross-env env=test npm run build",
     "build:prod": "cross-env env=prod npm run build",
+    "test": "jest --coverage",
     "commit": "git-cz"
   },
   "repository": {
@@ -50,8 +50,10 @@
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/babel-preset-app": "^4.4.6",
+    "@vue/cli-plugin-unit-jest": "^4.4.6",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^1.0.3",
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "chalk": "^4.0.0",
@@ -94,6 +96,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "ts-jest": "^26.1.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.0.0",
