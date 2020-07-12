@@ -18,6 +18,7 @@ module.exports = merge(config, {
     hot: true, // 在不支持热更新的时候不会刷新页面
     overlay: true, // 错误遮罩
     noInfo: true,
+    writeToDisk: false, // true文件写入硬盘，false写入内存文件系统里面
     watchOptions: {
       // 延迟构建响应，即将多个文件更改的多次构建合成到一次重构建(rebuild)
       aggregateTimeout: 1000, // in ms
