@@ -1,5 +1,12 @@
 <template>
-  <div>{{ userName }}</div>
+  <div>
+    {{ userName }}
+    <!-- <a-button type="primary">
+      Primary
+    </a-button> -->
+    <img src="../assets/tes.png" alt="" />
+    <img src="../assets/jb.png" alt="" />
+  </div>
 </template>
 
 <script lang="ts">
