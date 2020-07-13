@@ -1,6 +1,8 @@
 # folders
 node_modules
+coverage
 dist
 
 # files
 package-lock.json
+yarn.lock
