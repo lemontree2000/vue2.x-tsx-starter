@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const TerserPlugin = require('terser-webpack-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.config')
 
 module.exports = merge(config, {
@@ -59,7 +60,8 @@ module.exports = merge(config, {
         cache: true,
         parallel: true,
         extractComments: false
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ]
   }
 })

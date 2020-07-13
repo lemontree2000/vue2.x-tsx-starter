@@ -5,6 +5,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const { ProgressPlugin } = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PreloadPlugin = require('preload-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -52,7 +53,8 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          // { loader: 'style-loader' },
+          MiniCssExtractPlugin.loader,
           { loader: 'css-loader' },
           { loader: 'postcss-loader' }
         ]
@@ -119,6 +121,10 @@ module.exports = {
     new ProgressPlugin(),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
     new PreloadPlugin({
       rel: 'preload',
       include: 'initial',
