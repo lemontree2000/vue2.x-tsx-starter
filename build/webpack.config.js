@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PreloadPlugin = require('preload-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const config = require('./config')
 const isProd = process.env.NODE_ENV === 'production'
 const resloveCssPoader = () => isProd ? MiniCssExtractPlugin.loader : 'style-loader'
 
@@ -17,7 +18,7 @@ module.exports = {
   output: {
     filename: 'js/[name].[hash:8].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    publicPath: './'
   },
   module: {
     noParse: /^(vue|vue-router|vuex)$/,
@@ -117,7 +118,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'title',
+      title: config.documentTitle,
       template: path.resolve(__dirname, '../public/index.html')
     }),
     new ProgressPlugin(),

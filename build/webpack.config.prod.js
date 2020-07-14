@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(config, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: process.env.env === 'prod' ? 'none' : 'source-map',
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -67,8 +67,8 @@ module.exports = merge(config, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: 'css/[name].[hash:8].css'
     })
   ]
 })
