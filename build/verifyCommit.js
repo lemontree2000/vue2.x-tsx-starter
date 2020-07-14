@@ -2,7 +2,6 @@
 
 const chalk = require('chalk')
 const msgPath = process.env.HUSKY_GIT_PARAMS
-console.log(msgPath)
 const msg = require('fs').readFileSync(msgPath, 'utf-8').trim()
 
 const releaseRE = /^v\d/
@@ -19,7 +18,7 @@ if (!releaseRE.test(msg) && !commitRE.test(msg)) {
       ) +
       `    ${chalk.green(`feat: add 'comments' option`)}\n` +
       `    ${chalk.green(`fix: handle events on blur (close #28)`)}\n\n` +
-      chalk.red(`  See .github/commit-convention.md for more details.\n`)
+      chalk.red(`  See docs/commit-convention.md for more details.\n`)
   )
   process.exit(1)
 }
