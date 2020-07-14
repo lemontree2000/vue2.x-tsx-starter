@@ -5,6 +5,10 @@ const { VueLoaderPlugin } = require('vue-loader')
 const { ProgressPlugin } = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PreloadPlugin = require('preload-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const isProd = process.env.NODE_ENV === 'production'
+const resloveCssPoader = () => isProd ? MiniCssExtractPlugin.loader : 'style-loader'
 
 module.exports = {
   entry: {
@@ -52,7 +56,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          resloveCssPoader(),
           { loader: 'css-loader' },
           { loader: 'postcss-loader' }
         ]
@@ -60,7 +64,7 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          { loader: 'style-loader' },
+          resloveCssPoader(),
           { loader: 'css-loader' },
           { loader: 'postcss-loader' },
           { loader: 'less-loader' },

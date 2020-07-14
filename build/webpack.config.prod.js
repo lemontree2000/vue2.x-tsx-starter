@@ -1,6 +1,8 @@
 const { merge } = require('webpack-merge')
 const TerserPlugin = require('terser-webpack-plugin')
 const config = require('./webpack.config')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(config, {
   mode: 'production',
@@ -59,7 +61,14 @@ module.exports = merge(config, {
         cache: true,
         parallel: true,
         extractComments: false
-      })
+      }),
+      new OptimizeCSSAssetsPlugin({})
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
+  ]
 })
