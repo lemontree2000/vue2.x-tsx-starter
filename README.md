@@ -14,4 +14,5 @@ vue2.x-tsx-starter
 - [x] git hook lint-stated commit style/ 强制校验commit msg
 - [x] eslint prettier save
 - [x] jest
+- [ ] 按需加载antd组件
 - [ ] 文档
