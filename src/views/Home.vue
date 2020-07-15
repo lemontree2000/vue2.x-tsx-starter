@@ -1,9 +1,9 @@
 <template>
   <div>
     {{ userName }}
-    <!-- <a-button type="primary">
-      Primary
-    </a-button> -->
+    <a-button type="primary" @click="jumpAboutPage">
+      Primary12
+    </a-button>
     <img src="../assets/tes.png" alt="" />
     <img src="../assets/jb.png" alt="" />
   </div>
@@ -28,6 +28,9 @@ export default class Home extends Vue {
   readonly login!: (val: any) => void
   created() {
     this.login('Edward')
+  }
+  jumpAboutPage() {
+    this.$router.push('/about')
   }
 }
 </script>

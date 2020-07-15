@@ -17,5 +17,5 @@ vue2.x-tsx-starter
 - [x] proxy
 - [ ] 配置文件
 - [ ] axios 封装，支持cancelToken
-- [ ] 按需加载antd组件
+- [x] 按需加载antd组件
 - [ ] 文档

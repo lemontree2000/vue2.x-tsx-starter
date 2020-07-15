@@ -124,10 +124,6 @@ module.exports = {
     new ProgressPlugin(),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-    }),
     new PreloadPlugin({
       rel: 'preload',
       include: 'initial',
