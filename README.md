@@ -3,7 +3,7 @@ vue2.x-tsx-starter
 
 
 - [x] ts支持
-- [x] tsx支持 因为ts-loader不支持热重载，所以不建议使用。另外vue sfc支持局部css而且支持热重载，所以还是使用vue的风格来写vue的代码， 如果想写tsx那就使用react的吧
+- [x] tsx支持 因为ts-loader不支持热重载，不建议使用。另外vue sfc支持局部css且支持热重载，所以还是使用vue的风格来写vue的代码， 如果想写tsx那就使用react的吧
 - [x] less支持
 - [x] less支持全局变量,优先用@import的变量
 - [x] postcss autoprefixer
@@ -15,5 +15,7 @@ vue2.x-tsx-starter
 - [x] eslint prettier save
 - [x] jest
 - [x] proxy
+- [ ] 配置文件
+- [ ] axios 封装，支持cancelToken
 - [ ] 按需加载antd组件
 - [ ] 文档
