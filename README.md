@@ -15,4 +15,5 @@ vue2.x-tsx-starter
 - [x] eslint prettier save
 - [x] jest
 - [x] proxy
+- [ ] 按需加载antd组件
 - [ ] 文档

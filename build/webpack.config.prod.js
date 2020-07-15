@@ -2,10 +2,12 @@ const { merge } = require('webpack-merge')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const config = require('./webpack.config')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = merge(config, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: process.env.env === 'prod' ? 'none' : 'source-map',
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -63,5 +65,11 @@ module.exports = merge(config, {
       }),
       new OptimizeCSSAssetsPlugin({})
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash:8].css',
+      chunkFilename: 'css/[name].[hash:8].css'
+    })
+  ]
 })
