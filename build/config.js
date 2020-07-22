@@ -1,5 +1,6 @@
 module.exports = {
   port: 9999,
+  https: false,
   documentTitle: 'Hello Vue Starter',
   proxy: {
     "/__proxy__": {
