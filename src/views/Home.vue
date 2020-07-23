@@ -12,7 +12,7 @@
 <script lang="ts">
 import { mapActions, mapState } from 'vuex'
 import { Component, Vue } from 'vue-property-decorator'
-
+import '@/apis/index'
 @Component({
   computed: {
     ...mapState('user', ['userName'])
