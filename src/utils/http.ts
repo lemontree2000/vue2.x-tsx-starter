@@ -2,7 +2,10 @@ import Axios from 'axios'
 
 const axiosInstance = Axios.create({
   baseURL: '',
-  timeout: 0
+  timeout: 1000 * 10,
+  withCredentials: true,
+  responseType: 'json',
+  headers: {}
 })
 
 axiosInstance.interceptors.request.use(

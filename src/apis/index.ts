@@ -16,4 +16,29 @@ export const getUserInfo = (config?: any) => {
   })
 }
 
+export const saveUser = () => {
+  return axiosInstance({
+    url: '/saveUser',
+    method: 'post',
+    data: {
+      a: 1,
+      b: 2
+    }
+  })
+}
+
+saveUser()
 getUserInfo()
+
+// export const authInfo = xxxx.get({
+//   baseUrl: '',
+//   url: '/baseInfo?abc=:id&',
+//   proxy: '',
+//   method: 'get',
+//   // params: {
+//   //   a: 1
+//   // },
+//   // data: {
+
+//   // }
+// })
