@@ -1,34 +1,52 @@
-import axiosInstance from '@/utils/http'
+// import request from '@/utils/http'
 
-export const getUserInfo = (config?: any) => {
-  return axiosInstance({
-    url: '/userInfo/:id',
+import request from '@/utils/request'
+
+const login =(data: any) => {
+  return request({
+    url: '/login',
     method: 'post',
-    params: {
-      a: 1,
-      id: 0
-    },
-    data: {
-      b: 2,
-      id: 'ok'
-    },
-    ...config
+    proxyPrefix: '__login__',
+    isLoading: true,
+    isMessage: true,
+    data
   })
 }
 
-export const saveUser = () => {
-  return axiosInstance({
-    url: '/saveUser',
-    method: 'post',
-    data: {
-      a: 1,
-      b: 2
-    }
-  })
-}
 
-saveUser()
-getUserInfo()
+login({}).then
+
+
+
+// export const getUserInfo = (config?: any) => {
+//   return request({
+//     url: '/userInfo/:id',
+//     method: 'post',
+//     params: {
+//       a: 1,
+//       id: 0
+//     },
+//     data: {
+//       b: 2,
+//       id: 'ok'
+//     },
+//     ...config
+//   })
+// }
+
+// export const saveUser = () => {
+//   return request({
+//     url: '/saveUser',
+//     method: 'post',
+//     data: {
+//       a: 1,
+//       b: 2
+//     }
+//   })
+// }
+
+// saveUser()
+// getUserInfo()
 
 // export const authInfo = xxxx.get({
 //   baseUrl: '',
@@ -42,3 +60,23 @@ getUserInfo()
 
 //   // }
 // })
+
+// 正常情况
+// const getName = request.get('/getName')
+// use: getName
+
+// //
+// interface ProductListParam {
+//   id: string
+// }
+
+// const getProductListById = (params: ProductListParam) => {
+//   return request({
+//     method: 'get',
+//     url: '/taskmanage/comment/delete/',
+//     proxyPrefix: '__login__',
+//     params
+//   })
+// }
+
+// getProductListById({ id: '1' })
