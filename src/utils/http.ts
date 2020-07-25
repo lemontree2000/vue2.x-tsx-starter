@@ -13,7 +13,7 @@ axiosInstance.interceptors.request.use(
     return config
   },
   (error) => {
-    console.log('request:error=>', error)
+    // console.log('request:error=>', error)
     return Promise.reject(error)
   }
 )
@@ -23,7 +23,7 @@ axiosInstance.interceptors.response.use(
     return response
   },
   (error) => {
-    console.log('response:error=>', error)
+    // console.log('response:error=>', error)
     return Promise.reject(error)
   }
 )
@@ -31,13 +31,15 @@ axiosInstance.interceptors.response.use(
 export default axiosInstance
 
 /**
- * 1.baseUrl
- * 2.proxy
- * 3./api/:id
+ * 1.baseUrl ✅
+ * 2.proxy ✅
+ * 3./api/:id  ✅
  * 4.cancelToken
- * 5.url
- * 6.method
- * 7.
+ * 5.url ✅
+ * 6.method ✅
+ * 7. 处理返回参数
+ * 8. 处理报错
+ * 9. 处理入参showmessage ， showloading
  *
  *
  */
