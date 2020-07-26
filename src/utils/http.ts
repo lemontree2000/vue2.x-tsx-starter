@@ -1,4 +1,13 @@
-import Axios from 'axios'
+import Axios, { AxiosResponse } from 'axios'
+import { message } from 'ant-design-vue'
+
+const showError = (msg: string) => {
+  message.error({
+    content: msg
+  })
+}
+
+showError('网络错误，请稍后再试')
 
 const axiosInstance = Axios.create({
   baseURL: '',

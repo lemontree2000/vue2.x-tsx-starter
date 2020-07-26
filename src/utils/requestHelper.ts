@@ -7,6 +7,7 @@ export function transformProxyPrefix(config: RequestConfig) {
   const isDevelopment = process.env.NODE_ENV === 'development'
   if (config.proxyPrefix && isDevelopment) {
     config.url = config.proxyPrefix + config.url
+    delete config.baseURL
   }
 }
 

@@ -1,7 +1,19 @@
 import request from '@/utils/request'
+import {
+  LoginParam,
+  loginResData,
+  UserInfoParam,
+  UserInfoResData,
+  SaveUserParam,
+  SaveUserResData,
+  GetProductListParam,
+  GetProductListResData
+} from './types'
+
 // defined api
 export const login = (data: LoginParam) => {
   return request<loginResData>({
+    baseURL: 'https://www.baidu.com',
     url: '/login',
     method: 'post',
     proxyPrefix: '__proxy__',

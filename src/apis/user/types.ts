@@ -1,38 +1,38 @@
-type loginResData = {
+export type loginResData = {
   userName?: string
   userId: number
 }
 
-type LoginParam = {
+export type LoginParam = {
   email: string
   password: string
 }
 
-type UserInfoResData = {
+export type UserInfoResData = {
   userName: string
   age: number
   email: string
   address: string
 }
 
-type UserInfoParam = {
+export type UserInfoParam = {
   userId: number
 }
 
-type SaveUserParam = {
+export type SaveUserParam = {
   userName: string
   password: string
 }
 
-type SaveUserResData = {
+export type SaveUserResData = {
   userId: 1
 }
 
-type GetProductListParam = {
+export type GetProductListParam = {
   storeId: number
 }
 
-type GetProductListResData = Array<{
+export type GetProductListResData = Array<{
   productName: string
   productId: number
   productType: string

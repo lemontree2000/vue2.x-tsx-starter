@@ -18,4 +18,5 @@ vue2.x-tsx-starter
 - [ ] 配置文件
 - [ ] axios 封装，支持cancelToken
 - [x] 按需加载antd组件
+- [ ] i18n
 - [ ] 文档
