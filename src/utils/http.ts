@@ -1,13 +1,14 @@
-import Axios, { AxiosResponse } from 'axios'
-import { message } from 'ant-design-vue'
+import Axios from 'axios'
+// import { message } from 'ant-design-vue'
+import { ResponseBodyData } from './request'
 
-const showError = (msg: string) => {
-  message.error({
-    content: msg
-  })
-}
+// const showError = (msg: string) => {
+//   message.error({
+//     content: msg
+//   })
+// }
 
-showError('网络错误，请稍后再试')
+// showError('网络错误，请稍后再试')
 
 const axiosInstance = Axios.create({
   baseURL: '',
@@ -29,10 +30,22 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
+    const code = 0,
+      msg = '',
+      data = null
+    console.log('response===>>>', response)
+    const finalResponse: ResponseBodyData = {
+      response,
+      code,
+      msg,
+      data
+    }
+    console.log(finalResponse)
     return response
   },
   (error) => {
-    // console.log('response:error=>', error)
+    console.log('response:error=>', JSON.stringify(error))
+    // showError(error.message)
     return Promise.reject(error)
   }
 )

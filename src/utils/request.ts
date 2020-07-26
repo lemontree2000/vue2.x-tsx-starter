@@ -8,14 +8,14 @@ export interface RequestConfig extends AxiosRequestConfig {
   isMessage?: boolean
 }
 
-export interface RequestBodyData<T = any> {
+export interface ResponseBodyData<T = any> {
   data: T
   code: number | string
   msg: string
   response: AxiosResponse<T>
 }
 
-export type RequestPromise<T = any> = Promise<RequestBodyData<T>>
+export type RequestPromise<T = any> = Promise<ResponseBodyData<T>>
 
 export interface Request {
   <T = any>(config: RequestConfig): RequestPromise<T>

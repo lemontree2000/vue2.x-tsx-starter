@@ -23,14 +23,14 @@ export const login = (data: LoginParam) => {
   })
 }
 // use api
-login({
-  email: 'edward@qq.com',
-  password: 'edward'
-}).then((res) => {
-  if (res.code === 200) {
-    console.log(res.data.userId)
-  }
-})
+// login({
+//   email: 'edward@qq.com',
+//   password: 'edward'
+// }).then((res) => {
+//   if (res.code === 200) {
+//     console.log(res.data.userId)
+//   }
+// })
 // defined api
 export const getUserInfo = (params: UserInfoParam) => {
   return request<UserInfoResData>({
@@ -41,22 +41,22 @@ export const getUserInfo = (params: UserInfoParam) => {
   })
 }
 // use api
-getUserInfo({ userId: 1 }).then((res) => {
-  if (res.code === 200) {
-    console.log(res.data.address)
-    console.log(res.data.userName)
-  }
-})
+// getUserInfo({ userId: 1 }).then((res) => {
+//   if (res.code === 200) {
+//     console.log(res.data.address)
+//     console.log(res.data.userName)
+//   }
+// })
 // defined api
 export const saveUser = (data: SaveUserParam) => {
   return request.post<SaveUserResData>('/saveUser', data)
 }
 // use api
-saveUser({ userName: 'edward', password: '1234' }).then((res) => {
-  if (res) {
-    console.log(res.data.userId)
-  }
-})
+// saveUser({ userName: 'edward', password: '1234' }).then((res) => {
+//   if (res) {
+//     console.log(res.data.userId)
+//   }
+// })
 
 // defined
 const getProductListById = (params: GetProductListParam) => {
