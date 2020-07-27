@@ -12,6 +12,7 @@ export interface ResponseBodyData<T = any> {
   data: T
   code: number | string
   msg: string
+  error: boolean
   response: AxiosResponse<T>
 }
 

@@ -66,7 +66,12 @@ const getProductListById = (params: GetProductListParam) => {
   })
 }
 // use api
-getProductListById({ storeId: 1 }).then((res) => {
-  console.log(res.data[0].productId)
-  console.log(res.data[0].productName)
-})
+getProductListById({ storeId: 1 })
+  .then((res) => {
+    console.log(res.data)
+    // console.log(res.data[0].productId)
+    // console.log(res.data[0].productName)
+  })
+  .catch((err) => {
+    console.log(err)
+  })
