@@ -9,6 +9,7 @@ import { ResponseBodyData } from './request'
 // }
 
 // showError('网络错误，请稍后再试')
+const SUCCESS_CODES = ['200', '20000', '00', '0']
 
 const axiosInstance = Axios.create({
   baseURL: '',
@@ -30,16 +31,26 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    const code = 0,
-      msg = '',
-      data = null
+    const responseData = response.data
+    const code = responseData.code || responseData.status
+    const msg = responseData.msg || responseData.message
+    const data = responseData.data || responseData
+    let success = true
+    // 1、data 不是json
+    // 2、未登录校验 40300，30100
+
+    // if (SUCCESS_CODES.includes(String(code))) {
+    // } else {
+    // }
+    if (SUCCESS_CODES.includes(String(code))) {
+    }
     console.log('response===>>>', response)
-    const finalResponse: ResponseBodyData = {
-      response,
+    const finalResponse: ResponseBodyData = Object.assign(Object.create({ response }), {
       code,
       msg,
       data
-    }
+    })
+
     console.log(finalResponse)
     return response
   },
