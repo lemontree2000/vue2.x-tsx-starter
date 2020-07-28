@@ -127,7 +127,7 @@ export function processHttpError(err: any) {
   const code = 500
   const error = true
   if (err.isAxiosError) {
-    const { status } = (err as AxiosError).response as AxiosResponse
+    const { status } = ((err as AxiosError).response as AxiosResponse) || {}
     switch (status) {
       case 0:
         msg = HTTP_NETWORK_ERROR
