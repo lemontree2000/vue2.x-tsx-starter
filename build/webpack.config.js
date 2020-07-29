@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const PreloadPlugin = require('preload-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const DotevnPlugin = require('./dotenv.plugin')
 const config = require('./config')
 const isProd = process.env.NODE_ENV === 'production'
 const resloveCssPoader = () => isProd ? MiniCssExtractPlugin.loader : 'style-loader'
@@ -117,6 +118,7 @@ module.exports = {
     }
   },
   plugins: [
+    new DotevnPlugin(),
     new HtmlWebpackPlugin({
       title: config.documentTitle,
       template: path.resolve(__dirname, '../public/index.html')
