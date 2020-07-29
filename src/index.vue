@@ -11,6 +11,7 @@ export default {
     return {}
   },
   created() {
+    console.log(process.env)
     // axios
     //   .get('/__proxy__/api')
     //   .then((res) => {
