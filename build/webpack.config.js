@@ -10,7 +10,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const DotevnPlugin = require('./dotenv.plugin')
 const config = require('./config')
 const isProd = process.env.NODE_ENV === 'production'
-const resloveCssPoader = () => isProd ? MiniCssExtractPlugin.loader : 'style-loader'
+const resloveCssPoader = () => (isProd ? MiniCssExtractPlugin.loader : 'style-loader')
 
 module.exports = {
   entry: {
@@ -29,6 +29,9 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
+            loader: 'cache-loader'
+          },
+          {
             loader: 'babel-loader'
           },
           {
@@ -41,7 +44,12 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        use: [{ loader: 'vue-loader' }]
+        use: [
+          {
+            loader: 'cache-loader'
+          },
+          { loader: 'vue-loader' }
+        ]
       },
       {
         test: /\.(vue|(j|t)sx?)$/,
@@ -57,11 +65,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          resloveCssPoader(),
-          { loader: 'css-loader' },
-          { loader: 'postcss-loader' }
-        ]
+        use: [resloveCssPoader(), { loader: 'css-loader' }, { loader: 'postcss-loader' }]
       },
       {
         test: /\.less$/,
@@ -74,9 +78,7 @@ module.exports = {
             loader: 'sass-resources-loader',
             options: {
               sourceMap: true,
-              resources: [
-                path.resolve(__dirname, '../src/styles/variables.less')
-              ]
+              resources: [path.resolve(__dirname, '../src/styles/variables.less')]
             }
           }
         ]

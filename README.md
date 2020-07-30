@@ -15,7 +15,7 @@ vue2.x-tsx-starter
 - [x] eslint prettier save
 - [x] jest
 - [x] proxy
-- [ ] 配置文件
+- [x] 配置文件
 - [ ] axios 封装，支持cancelToken
 - [x] 按需加载antd组件
 - [ ] i18n
