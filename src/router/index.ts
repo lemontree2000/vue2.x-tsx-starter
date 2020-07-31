@@ -1,18 +1,9 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
+import layoutRoutes from './layout.route'
 
 Vue.use(VueRouter)
-const routes: Array<RouteConfig> = [
-  {
-    path: '/',
-    component: () => import('../views/Home.vue')
-  },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+const routes: Array<RouteConfig> = [...layoutRoutes]
 
 const router = new VueRouter({
   mode: 'history',

@@ -104,7 +104,7 @@
     "webpack-merge": "^5.0.7"
   },
   "dependencies": {
-    "ant-design-vue": "^1.6.3",
+    "ant-design-vue": "^1.6.4",
     "axios": "^0.19.2",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",

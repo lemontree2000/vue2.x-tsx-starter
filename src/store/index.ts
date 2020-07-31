@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Vuex, { createLogger } from 'vuex'
 
-import mutations from './mutations'
-import actions from './actions'
-import state from './state'
+import rootStore from './root.store'
 
 import user from './modules/user.module'
 
@@ -11,9 +9,7 @@ Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 const store = new Vuex.Store({
-  state,
-  mutations,
-  actions,
+  ...rootStore,
   modules: {
     user
   },

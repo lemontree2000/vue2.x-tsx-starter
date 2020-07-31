@@ -22,8 +22,8 @@ const mutations = {
 }
 
 export const actions = {
-  login(content: ActionContext<any, any>, data: any) {
-    content.commit(actionTypes.SAVE_USER_INFO, data)
+  login(context: ActionContext<any, any>, data: any) {
+    context.commit(actionTypes.SAVE_USER_INFO, data)
   }
 }
 
