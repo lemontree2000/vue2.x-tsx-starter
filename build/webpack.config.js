@@ -73,7 +73,19 @@ module.exports = {
           resloveCssPoader(),
           { loader: 'css-loader' },
           { loader: 'postcss-loader' },
-          { loader: 'less-loader' },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                modifyVars: {
+                  'primary-color': '#0056FF',
+                  // 'link-color': '#1DA57A',
+                  'border-radius-base': '2px',
+                },
+                javascriptEnabled: true,
+              }
+            }
+          },
           {
             loader: 'sass-resources-loader',
             options: {
