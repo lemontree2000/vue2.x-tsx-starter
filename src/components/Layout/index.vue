@@ -1,12 +1,12 @@
 <template>
-  <a-layout id="components-layout-demo-custom-trigger">
+  <a-layout class="ss-layout">
     <sider />
     <a-layout>
       <header-bar />
-      <a-layout-content
-        :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
-      >
-        <router-view />
+      <a-layout-content>
+        <transition name="fade-transform" mode="out-in">
+          <router-view />
+        </transition>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -14,8 +14,8 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator'
-import Sider from './Sider.vue'
-import HeaderBar from './HeaderBar.vue'
+import Sider from './component/Sider.vue'
+import HeaderBar from './component/HeaderBar.vue'
 @Component({
   components: {
     Sider,
@@ -24,7 +24,6 @@ import HeaderBar from './HeaderBar.vue'
 })
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string
-  collapsed = false
 }
 </script>
 

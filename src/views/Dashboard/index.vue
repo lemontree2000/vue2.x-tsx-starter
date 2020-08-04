@@ -17,6 +17,7 @@ export default class About extends Vue {
     console.log('heell')
   }
   requestBaidu() {
+    this.$router.push('/home')
     // Axios.get(config.serverUrl)
     //   .then((res) => {
     //     console.log(res)
