@@ -58,32 +58,76 @@
 .ss-menu {
   background: #262a39;
   padding-top: 8px;
-  .ant-menu-item {
-    margin: 0;
-    height: 48px;
-    line-height: 48px;
-    &::after {
-      border-right: 3px solid #1acc99 !important;
-      left: 0;
-      right: unset;
-    }
-    &.ant-menu-item-selected {
-      background: #1e212d !important;
-    }
-  }
   &.ant-menu-vertical {
     .ant-menu-item-selected::after {
       transform: scaleY(1);
       opacity: 1;
     }
   }
-  .ant-menu-sub {
-    background: #262a39 !important;
-    box-shadow: none !important;
-  }
+
   .ant-menu-submenu-title {
     margin: 0;
     height: 48px !important;
     line-height: 48px !important;
+  }
+
+  .ant-menu {
+    &-item {
+      margin: 0;
+      height: 48px;
+      line-height: 48px;
+      &::after {
+        border-right: 3px solid #1acc99 !important;
+        left: 0;
+        right: unset;
+      }
+      &.ant-menu-item-selected {
+        background: #1e212d !important;
+      }
+    }
+    &-sub {
+      background: #262a39 !important;
+      box-shadow: none !important;
+    }
+    &-submenu {
+      &-title::after {
+        position: absolute;
+        top: 0;
+        border-right: 3px solid #1acc99 !important;
+        left: 0;
+        right: unset;
+        bottom: 0;
+        border-right: 3px solid #1890ff;
+        transform: scaleY(0.00001);
+        opacity: 0;
+        transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+          opacity 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        content: '';
+      }
+      &-selected:not(.ant-menu-submenu-open) {
+        .ant-menu-submenu-title {
+          background: #1e212d !important;
+          &::after {
+            transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+.ant-menu-dark .ant-menu-sub {
+  background: #262a39 !important;
+}
+.ant-menu-submenu.ant-menu-submenu-popup {
+  .ant-menu-item.ant-menu-item-selected {
+    background: #1e212d !important;
+    &::after {
+      border-right: 3px solid #1acc99 !important;
+      left: 0;
+      right: unset;
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
