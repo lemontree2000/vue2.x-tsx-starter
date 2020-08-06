@@ -5,7 +5,7 @@
       <header-bar />
       <a-layout-content>
         <transition name="fade-transform" mode="out-in">
-          <router-view />
+          <router-view class="layout-view" />
         </transition>
       </a-layout-content>
     </a-layout>
