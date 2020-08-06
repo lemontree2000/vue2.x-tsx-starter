@@ -7,7 +7,7 @@
     cursor: pointer;
     transition: color 0.3s;
     &:hover {
-      color: #1890ff;
+      color: #0556ff;
     }
   }
   .logo {
@@ -43,10 +43,7 @@
       }
     }
   }
-  .ant-layout-header {
-    height: 56px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  }
+
   .ant-layout-content {
     margin: 24px 16px;
     padding: 24px;
@@ -54,7 +51,7 @@
     min-height: 280px;
   }
 }
-
+// menu
 .ss-menu {
   background: #262a39;
   padding-top: 8px;
@@ -128,6 +125,44 @@
       right: unset;
       opacity: 1;
       transform: scale(1);
+    }
+  }
+}
+
+// header
+.ant-layout-header {
+  display: flex;
+  height: 56px;
+  line-height: 56px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  .left-header {
+    flex: 1;
+  }
+  .right-header {
+    padding: 0 12px;
+    .global-actions {
+      .dropdonw-placeholder {
+        display: flex;
+        line-height: 56px;
+        height: 56px;
+        align-items: center;
+        .user-info {
+          display: flex;
+          flex-direction: column;
+          margin-left: 8px;
+          span {
+            line-height: initial;
+            &.user-name {
+              color: #333333;
+              font-size: 14px;
+            }
+            &.user-job {
+              color: #bfbfbf;
+              font-size: 12px;
+            }
+          }
+        }
+      }
     }
   }
 }
