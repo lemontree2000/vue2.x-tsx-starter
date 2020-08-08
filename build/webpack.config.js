@@ -29,9 +29,6 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'cache-loader'
-          },
-          {
             loader: 'babel-loader'
           },
           {
