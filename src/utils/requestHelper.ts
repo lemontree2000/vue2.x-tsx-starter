@@ -7,7 +7,7 @@ import {
   HTTP_NOT_FOUND_ERROR,
   HTTP_SERVER_ERROR,
   HTTP_NETWORK_ERROR
-} from '@/config/constans/index'
+} from '@/constans/index'
 import { message } from 'ant-design-vue'
 
 const methodsNoData = ['delete', 'get', 'head', 'options']

@@ -37,7 +37,7 @@ export default axiosInstance
  * 6.method ✅
  * 7. 处理返回参数 ✅
  * 8. 处理报错 ✅
- * 9. 处理入参showmessage ， showloading
+ * 9. 处理入参showmessage ， showloading ❌ 不处理了， 让组件自己处理
  *
  *
  */
